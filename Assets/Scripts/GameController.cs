@@ -6,8 +6,8 @@ public class GameController : MonoBehaviour
 {
     private bool m_isGameOver;
     // Start is called before the first frame update
-    public GameObject obstacles;
-    Vector3 spawnPos = new Vector3(25, 0, 0);
+    public GameObject[] obstacles;
+    Vector3 spawnPos;
     private float startDelay = 1;
     private float repeatRate = 2;
     void Start()
@@ -27,7 +27,10 @@ public class GameController : MonoBehaviour
     {
         if (IsGameOver() == false)
         {
-            Instantiate(obstacles, spawnPos, obstacles.transform.rotation);
+            int index;
+            index = Random.Range(0, obstacles.Length);
+            spawnPos = new Vector3(25,obstacles[index].transform.position.y, 0);
+            Instantiate(obstacles[index], spawnPos, obstacles[index].transform.rotation);
         }
         
     }

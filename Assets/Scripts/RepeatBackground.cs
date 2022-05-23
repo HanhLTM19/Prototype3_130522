@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class RepeatBackground : MonoBehaviour
 {
-    Vector3 startPosition;
-    private float repeatWidth;
+    Vector3 startPosition; // vi tri bat dau cua background
+    private float repeatWidth; 
     // Start is called before the first frame update
     void Start()
     {

@@ -5,11 +5,13 @@ using UnityEngine;
 public class MoveLeft : MonoBehaviour
 {
     GameController gameController;
-    float speedMove = 15;
+    Player player;
+    public float speedMove = 15;
     // Start is called before the first frame update
     void Start()
     {
         gameController = FindObjectOfType<GameController>(gameController);
+        player = FindObjectOfType<Player>(player);
     }
 
     // Update is called once per frame
@@ -17,7 +19,15 @@ public class MoveLeft : MonoBehaviour
     {
         if (gameController.IsGameOver() == false)
         {
-            transform.Translate(Vector3.left * Time.deltaTime * speedMove);
+            if (player.isDoubleSpeed)
+            {
+                transform.Translate(Vector3.left * Time.deltaTime * (speedMove * 2));
+            }
+            else
+            {
+                transform.Translate(Vector3.left * Time.deltaTime * speedMove);
+            }
+            
         }
        
     }
