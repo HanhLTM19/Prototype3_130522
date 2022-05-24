@@ -157,6 +157,8 @@ MonoBehaviour:
   - {fileID: 4515703781418238179, guid: 8f470262772dc7249b30da4c3302287f, type: 3}
   - {fileID: 1405734020409272560, guid: 0a7716d027195a64ebb10f4c78102b86, type: 3}
   - {fileID: 8509385754552816828, guid: 0005d65c5efd9904dbc2c58ab360e2cc, type: 3}
+  startingPonit: {fileID: 970790294}
+  lerpSpeed: 5
 --- !u!4 &106804374
 Transform:
   m_ObjectHideFlags: 0
@@ -461,7 +463,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0703a1849c2c89b4db4568688faf0c5f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.15
+      value: -18
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0703a1849c2c89b4db4568688faf0c5f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -694,6 +696,36 @@ ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 9125212449759046732, guid: cb7cd9b0c56a24d49a40784bd3203ae6, type: 3}
   m_PrefabInstance: {fileID: 6216024666792629773}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &970790293
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 970790294}
+  m_Layer: 0
+  m_Name: StartPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &970790294
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970790293}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &1490041804 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 1438565936, guid: fb82dfb8d1c7044c69afd2486befecb3, type: 3}
@@ -886,6 +918,8 @@ MonoBehaviour:
   isOnGround: 1
   doubleJumpForce: 400
   isDoubleSpeed: 0
+  startingPonit: {fileID: 0}
+  lerpSpeed: 0
 --- !u!65 &2089919855
 BoxCollider:
   m_ObjectHideFlags: 0

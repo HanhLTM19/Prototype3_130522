@@ -20,8 +20,8 @@ public class Player : MonoBehaviour
     public float doubleJumpForce;
 
     public bool isDoubleSpeed = false;
-    
 
+    
     GameController gameController;
     // Start is called before the first frame update
     void Start()
@@ -49,6 +49,7 @@ public class Player : MonoBehaviour
             playerAnimator.SetFloat("Speed_Multiplier", 1.0f);
         }
     }
+    
     //nhay khi nhan space
     public void PlayerJump()
     {

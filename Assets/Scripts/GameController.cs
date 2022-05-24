@@ -10,9 +10,15 @@ public class GameController : MonoBehaviour
     Vector3 spawnPos;
     private float startDelay = 1;
     private float repeatRate = 2;
+
+    public Transform startingPonit;
+    public float lerpSpeed;
+    Player player;
     void Start()
     {
+        player = GameObject.Find("Player").GetComponent<Player>();
         InvokeRepeating("SpawnObstacle", startDelay, repeatRate);
+        StartCoroutine(PlayIntro());
     }
 
     // Update is called once per frame
@@ -22,6 +28,29 @@ public class GameController : MonoBehaviour
         {
             Debug.Log("Game over");
         }
+    }
+
+    IEnumerator PlayIntro()
+    {
+        Vector3 startPos = transform.position;
+        Vector3 endPos = startingPonit.position;
+        float m_journeyLength = Vector3.Distance(startPos, endPos);
+        float startTime = Time.time;
+
+        float m_distance = (Time.time - startTime) * lerpSpeed;
+        float fractionOfJourney = m_distance / m_journeyLength;
+
+        player.GetComponent<Animator>().SetFloat("Speed_Multiplier", 0.5f);
+
+        while (fractionOfJourney < 1)
+        {
+            m_distance = (Time.time - startTime) * lerpSpeed;
+            fractionOfJourney = m_distance / m_journeyLength;
+            transform.position = Vector3.Lerp(startPos, endPos, fractionOfJourney);
+            yield return null;
+        }
+        player.GetComponent<Animator>().SetFloat("Speed_Multiplier", 1.0f);
+
     }
     public void SpawnObstacle()
     {
